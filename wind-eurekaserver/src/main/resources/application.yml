@@ -22,7 +22,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://bwind.qdfae.com:7002/eureka/
-
+  server:
+    enable-self-preservation: false #关闭自我保护
+    eviction-interval-timer-in-ms: 4000 #eureka server清理无效节点的时间间隔
 ---
 server:
   port: 7002
