@@ -1,0 +1,3 @@
+include 'wind-web','wind-eurekaserver','wind-userservice'
+
+rootProject.name = 'microservice'

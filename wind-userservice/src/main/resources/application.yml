@@ -1,0 +1,14 @@
+server:
+  port: 7101
+spring:
+  application:
+    name: userservice
+eureka:
+  client:
+    service-url:
+      defaultZone: http://wind.qdfae.com:7000/eureka/
+      
+#actuator 监控配置
+management:
+  port: 8101
+  context-path: /admin

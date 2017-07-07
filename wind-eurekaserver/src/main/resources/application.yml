@@ -1,0 +1,36 @@
+#单机模式
+server:
+  port: 7000
+eureka:
+  instance:
+    hostname: wind.qdfae.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#负载
+---
+server:
+  port: 7001
+spring:
+  profiles: eureka1
+eureka:
+  instance:
+    hostname: awind.qdfae.com
+  client:
+    service-url:
+      defaultZone: http://bwind.qdfae.com:7002/eureka/
+
+---
+server:
+  port: 7002
+spring:
+  profiles: eureka2
+eureka:
+  instance:
+    hostname: bwind.qdfae.com
+  client:
+    service-url:
+      defaultZone: http://awind.qdfae.com:7001/eureka/
