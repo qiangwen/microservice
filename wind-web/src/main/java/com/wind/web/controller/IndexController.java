@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class IndexController {
-
+	
 	/**
 	 * 首页
 	 * @return
@@ -20,7 +20,6 @@ public class IndexController {
 	 */
 	@RequestMapping("/index")
 	public String index(){
-		
-		return "";
+		return "欢迎来到微服务web端";
 	}
 }
