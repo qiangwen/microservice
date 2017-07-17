@@ -1,5 +1,5 @@
 server:
-  port: 7102
+  port: 7103
 spring:
   application:
     name: web
@@ -13,6 +13,6 @@ eureka:
         enabled: true   
 #actuator 监控配置
 management:
-  port: 8102
+  port: 8103
   context-path: /admin
   

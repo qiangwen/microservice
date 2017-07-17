@@ -1,5 +1,7 @@
 package com.wind.userservice.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
+	
 	/**
 	 * 获取用户名称
 	 * @param userId
@@ -25,6 +30,7 @@ public class UserController {
 	 */
 	@RequestMapping(path="/getusername",method=RequestMethod.GET)
 	public String getUsername(@RequestParam("userId")int userId){
+		log.debug("====userId==" + userId);
 		return "name" + userId;
 	}
 	
@@ -37,6 +43,7 @@ public class UserController {
 	 */
 	@RequestMapping(path="/getsimplename/{id}",method=RequestMethod.GET)
 	public String getUserSimplename(@PathVariable("id") int id){
+		log.debug("====id==" + id);
 		return "simplename" + id;
 	}
 }

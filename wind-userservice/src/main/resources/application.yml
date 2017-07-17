@@ -6,6 +6,8 @@ spring:
     
 #eureka配置
 eureka:
+#  instance:
+#    hostname: localhost
   client:
     service-url:
       defaultZone: http://wind.qdfae.com:7000/eureka/
@@ -15,3 +17,41 @@ eureka:
 management:
   port: 8101
   context-path: /admin
+  
+---
+
+server:
+  port: 7102
+spring:
+  profiles: des
+  application:
+    name: userservice
+    
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://wind.qdfae.com:7000/eureka/
+      healthcheck: 
+        enabled: true   
+#actuator 监控配置
+management:
+  port: 8102
+  context-path: /admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
