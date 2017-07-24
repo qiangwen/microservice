@@ -16,3 +16,11 @@ management:
   port: 8103
   context-path: /admin
   
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false 
+
+  

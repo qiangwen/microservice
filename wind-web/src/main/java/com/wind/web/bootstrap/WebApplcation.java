@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @ComponentScan(basePackages={"com.wind.web"})
 @EnableEurekaClient
+@EnableFeignClients(basePackages={"com.wind.web.api"})
 public class WebApplcation {
 	
 	@Autowired
@@ -28,7 +30,7 @@ public class WebApplcation {
 		SpringApplication.run(WebApplcation.class, args);
 	}
 	
-	//@LoadBalanced
+	@LoadBalanced
 	@Bean
 	public RestTemplate restTemplate(){
 		return restTemplateBuilder.build();
