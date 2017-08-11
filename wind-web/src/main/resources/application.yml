@@ -12,9 +12,9 @@ eureka:
       healthcheck: 
         enabled: true   
 #actuator 监控配置
-management:
-  port: 8103
-  context-path: /admin
+#management:
+#  port: 8103
+#  context-path: /admin
   
 hystrix:
   command:
@@ -22,5 +22,34 @@ hystrix:
       execution:
         timeout:
           enabled: false 
+feign:
+  hystrix:
+    enabled: true
 
+
+---
+server:
+  port: 7105
+spring:
+  application:
+    name: web2
+  profiles: web2
+    
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://wind.qdfae.com:7000/eureka/
+      healthcheck: 
+        enabled: true   
+  
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false 
+feign:
+  hystrix:
+    enabled: true
   

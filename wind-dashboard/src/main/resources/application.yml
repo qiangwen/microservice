@@ -1,0 +1,21 @@
+server:
+  port: 7104
+spring:
+  application:
+    name: dashboard
+    
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://wind.qdfae.com:7000/eureka/
+      healthcheck: 
+        enabled: true   
+
+turbine:
+  app-config: web,web2
+  cluster-name-expression: new String("default")
+
+
+
+  
